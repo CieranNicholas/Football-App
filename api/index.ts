@@ -1,6 +1,8 @@
 import { CompetitionCodes, apiOptions, matchesType } from "@/types";
 import { promises as fs } from "fs";
 
+const URL = "https://api.football-data.org/v4/";
+
 const options: apiOptions = {
   next: { revalidate: 30 },
   headers: {
@@ -10,23 +12,29 @@ const options: apiOptions = {
 };
 
 export const getMatchesfootball = async () => {
-  // const matchData = await fetch(
-  //   "https://api.football-data.org/v4/matches",
-  //   options
-  // );
-  // return matchData.json();
-  const file = await fs.readFile(
-    process.cwd() + "/api/matchData.json",
-    "utf-8"
+  const matchData = await fetch(
+    "https://api.football-data.org/v4/matches",
+    options
   );
-  const data = JSON.parse(file);
-  return data;
+  return matchData.json();
+  // const file = await fs.readFile(
+  //   process.cwd() + "/api/matchData.json",
+  //   "utf-8"
+  // );
+  // const data = JSON.parse(file);
+  // return data;
 };
 
-export const getLeagueStandings = async (CompetitionCode: string) => {
-  const file = await fs.readFile(process.cwd() + "/api/PlData.json", "utf-8");
+export const getLeagueStandings = async (code: string) => {
+  // const url = `${URL}competitions/${code}/standings`;
+  const url = `https://api.football-data.org/v4/competitions/PL/standings`;
+  const standings = await fetch(url, options);
+  const data = standings.json();
+  // return standings.json();
 
-  const data = JSON.parse(file);
+  // const file = await fs.readFile(process.cwd() + "/api/PlData.json", "utf-8");
+  // const data = JSON.parse(file);
+  // console.log(data);
 
   return data;
 };
@@ -49,7 +57,6 @@ export const getMatchesfootballFinished = async () => {
 };
 
 export const filterLeague = async (filterCompetitionCode: string) => {
-  console.log(filterCompetitionCode);
   const data = await getMatchesfootball();
   const matches: matchesType[] = data?.matches;
   const getData = matches.filter(

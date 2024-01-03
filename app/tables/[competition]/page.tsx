@@ -1,5 +1,5 @@
 import { getLeagueStandings } from "@/api/index";
-import { table } from "@/types";
+import { CompetitionCodes, table } from "@/types";
 import {
   Table,
   TableBody,
@@ -9,14 +9,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getValueByKey } from "@/helpers";
 
 export default async function TablesDetails({
   params,
 }: {
   params: { competition: string };
 }) {
-  const data = await getLeagueStandings(params.competition);
-  const standings = await data.standings[0].table;
+  const competitionKey = getValueByKey(params.competition, CompetitionCodes);
+  const data = await getLeagueStandings(competitionKey as string);
+  const standings = data.standings[0].table;
   return (
     <main className='p-24'>
       <Table className='w-1/2 m-auto'>
