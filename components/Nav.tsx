@@ -88,7 +88,7 @@ const NavItem = ({
     <li>
       <Link href={href} legacyBehavior passHref>
         <NavigationMenuLink
-          className={`flex flex-col justify-end p-5 rounded-md w-48 h-24 bg-opacity-70 relative`}
+          className={`flex flex-col justify-end p-5 rounded-md w-48 h-24 hover:brightness-50 relative cursor-pointer ease-linear transition-all duration-150`}
           style={{
             backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent), url(${icon})`,
             backgroundSize: "cover",
