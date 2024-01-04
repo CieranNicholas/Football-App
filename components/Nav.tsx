@@ -37,6 +37,7 @@ export default function Nav() {
                           href={`/fixtures/${obj.href}`}
                           title={obj.name}
                           description={obj.description}
+                          icon={obj.icon}
                         />
                       ))}
                     </ul>
@@ -51,6 +52,7 @@ export default function Nav() {
                           href={`/tables/${obj.href}`}
                           title={obj.name}
                           description={obj.description}
+                          icon={obj.icon}
                         />
                       ))}
                     </ul>
@@ -73,24 +75,25 @@ const NavItem = ({
   href,
   title,
   description,
+  icon,
 }: {
   href: string;
   title: string;
   description: string;
+  icon: string;
 }) => (
   <li>
     <li>
-      <Link
-        href={href}
-        legacyBehavior
-        passHref
-        // className='hover:bg-muted block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none'
-      >
+      <Link href={href} legacyBehavior passHref>
         <NavigationMenuLink
-          className={`flex flex-col p-5 hover:bg-primary-foreground rounded-md`}
+          className={`flex flex-col justify-end p-5 rounded-md w-48 h-24 bg-opacity-70 relative`}
+          style={{
+            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent), url(${icon})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className='mb-[5px] font-medium leading-[1.2]'>{title}</div>
-          <p className='leading-[1.4]'>{description}</p>
+          <div className='font-medium leading-[1.2] text-white'>{title}</div>
         </NavigationMenuLink>
       </Link>
     </li>
