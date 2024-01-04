@@ -11,30 +11,37 @@ const options: apiOptions = {
   },
 };
 
+export const getDates = () => {
+  const today = new Date();
+  const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000); // Add 7 days to today's date
+
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed in JavaScript
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return [year, month, day].join("-");
+  };
+
+  return [formatDate(today), formatDate(nextWeek)];
+};
+
 export const getMatchesfootball = async () => {
+  const [todayString, nextWeekString] = getDates();
+  console.log(todayString, nextWeekString); // O
+
   const matchData = await fetch(
-    "https://api.football-data.org/v4/matches",
+    // "https://api.football-data.org/v4/matches",
+    `${URL}matches?dateFrom=${todayString}&dateTo=${nextWeekString}`,
     options
   );
   return matchData.json();
-  // const file = await fs.readFile(
-  //   process.cwd() + "/api/matchData.json",
-  //   "utf-8"
-  // );
-  // const data = JSON.parse(file);
-  // return data;
 };
 
 export const getLeagueStandings = async (code: string) => {
-  // const url = `${URL}competitions/${code}/standings`;
-  const url = `https://api.football-data.org/v4/competitions/PL/standings`;
+  const url = `${URL}competitions/${code}/standings`;
   const standings = await fetch(url, options);
   const data = standings.json();
-  // return standings.json();
-
-  // const file = await fs.readFile(process.cwd() + "/api/PlData.json", "utf-8");
-  // const data = JSON.parse(file);
-  // console.log(data);
 
   return data;
 };

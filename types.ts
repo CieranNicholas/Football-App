@@ -114,10 +114,10 @@ export type standingsType = {
 
 export const Competitions: ICompetitions[] = [
   {
-    name: "UEFA Champions League",
-    description: "Europe",
-    href: "ChampionsLeague",
-    icon: "https://www.countryflags.com/wp-content/uploads/europe-flag-jpg-xl.jpg",
+    name: "All",
+    description: "",
+    href: "",
+    icon: "",
   },
   {
     name: "PremierLeague",
@@ -138,17 +138,18 @@ export const Competitions: ICompetitions[] = [
     icon: "https://www.countryflags.com/wp-content/uploads/spain-flag-png-large.png",
   },
   {
-    name: "Seria A",
-    description: "Italy",
-    href: "SeriaA",
-    icon: "https://www.countryflags.com/wp-content/uploads/italy-flag-png-large.png",
-  },
-  {
     name: "Bundesliga",
     description: "Germany",
     href: "Bundesliga",
     icon: "https://www.countryflags.com/wp-content/uploads/germany-flag-png-large.png",
   },
+  {
+    name: "Seria A",
+    description: "Italy",
+    href: "SeriaA",
+    icon: "https://www.countryflags.com/wp-content/uploads/italy-flag-png-large.png",
+  },
+
   {
     name: "Eredivisie",
     description: "Netherlands",
@@ -174,15 +175,15 @@ export const Competitions: ICompetitions[] = [
     icon: "https://www.countryflags.com/wp-content/uploads/brazil-flag-png-large.png",
   },
   {
+    name: "UEFA Champions League",
+    description: "Europe",
+    href: "ChampionsLeague",
+    icon: "https://www.countryflags.com/wp-content/uploads/europe-flag-jpg-xl.jpg",
+  },
+  {
     name: "UEFA European Championship",
     description: "Europe",
     href: "Euros",
     icon: "https://www.countryflags.com/wp-content/uploads/europe-flag-jpg-xl.jpg",
-  },
-  {
-    name: "Copa Libertadores",
-    description: "South America",
-    href: "CopaLibertadores",
-    icon: "",
   },
 ];

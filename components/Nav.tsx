@@ -38,6 +38,7 @@ export default function Nav() {
                           title={obj.name}
                           description={obj.description}
                           icon={obj.icon}
+                          key={obj.href}
                         />
                       ))}
                     </ul>
@@ -53,6 +54,7 @@ export default function Nav() {
                           title={obj.name}
                           description={obj.description}
                           icon={obj.icon}
+                          key={obj.href}
                         />
                       ))}
                     </ul>
