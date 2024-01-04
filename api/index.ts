@@ -1,6 +1,9 @@
 import { apiOptions, matchesType } from "@/types";
+import fs from "fs";
+import path from "path";
 
 const URL = "https://api.football-data.org/v4/";
+const NEWS_URL = "https://newsapi.org/v2/";
 
 const options: apiOptions = {
   next: { revalidate: 30 },
@@ -51,4 +54,14 @@ export const filterLeague = async (filterCompetitionCode: string) => {
     (item) => item.competition.code === filterCompetitionCode
   );
   return getData;
+};
+
+export const fetchFootballNews = async () => {
+  // const data = await fetch(`${NEWS_URL}everything?apiKey=${process.env.NEWS_API_KEY}&q=football&sortBy=publishedAt&domains=www.skysports.com,bbc.co.uk,dailymail.co.uk,theguardian.com,talksport.com,goal.com,www.football.london`);
+  // return data.json();
+
+  const filePath = path.join(process.cwd(), "api/news.json");
+  const jsonData = fs.readFileSync(filePath, "utf8");
+  const data = JSON.parse(jsonData);
+  return await data;
 };

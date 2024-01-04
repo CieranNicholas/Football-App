@@ -112,6 +112,12 @@ export type standingsType = {
   standings: standings;
 };
 
+export type newsType = {
+  title: string;
+  url: string;
+  image: string;
+};
+
 export const Competitions: ICompetitions[] = [
   {
     name: "All",
