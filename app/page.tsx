@@ -1,6 +1,8 @@
 import { fetchFootballNews } from "@/api/index";
 import { Competitions, ICompetitions } from "@/types";
 import NewsCarousel from "@/components/NewsCarousel";
+import NewsList from "@/components/NewsList";
+
 export default async function Home() {
   const newsData = await fetchFootballNews();
   const news = newsData.articles;
@@ -14,9 +16,7 @@ export default async function Home() {
         <NewsCarousel news={topNews} />
       </section>
       <section className="w-2/3 mx-auto mb-8'">
-        {otherNews.map((article: any) => (
-          <></>
-        ))}
+        <NewsList news={otherNews} />
       </section>
 
       <section className='w-2/3 mx-auto'>

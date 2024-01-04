@@ -116,6 +116,11 @@ export type newsType = {
   title: string;
   url: string;
   image: string;
+  publishedAt: string;
+  source: {
+    id: string;
+    name: string;
+  };
 };
 
 export const Competitions: ICompetitions[] = [

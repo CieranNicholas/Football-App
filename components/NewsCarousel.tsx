@@ -11,7 +11,6 @@ import { newsType } from "@/types";
 
 export default function NewsCarousel({ news }: { news: newsType[] }) {
   const topNews = news.slice(0, 3);
-  console.log(topNews);
   return (
     <Carousel>
       <CarouselContent>
