@@ -1,5 +1,4 @@
-import { CompetitionCodes, apiOptions, matchesType } from "@/types";
-import { promises as fs } from "fs";
+import { apiOptions, matchesType } from "@/types";
 
 const URL = "https://api.football-data.org/v4/";
 
@@ -13,11 +12,11 @@ const options: apiOptions = {
 
 export const getDates = () => {
   const today = new Date();
-  const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000); // Add 7 days to today's date
+  const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
 
   const formatDate = (date: Date) => {
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed in JavaScript
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
 
     return [year, month, day].join("-");
@@ -31,7 +30,6 @@ export const getMatchesfootball = async () => {
   console.log(todayString, nextWeekString); // O
 
   const matchData = await fetch(
-    // "https://api.football-data.org/v4/matches",
     `${URL}matches?dateFrom=${todayString}&dateTo=${nextWeekString}`,
     options
   );
@@ -44,23 +42,6 @@ export const getLeagueStandings = async (code: string) => {
   const data = standings.json();
 
   return data;
-};
-
-const todayDate = new Date();
-const getDateMonth = new Date(todayDate.getTime());
-getDateMonth.setDate(todayDate.getDate() - 1);
-const year = getDateMonth.getFullYear();
-const month = String(getDateMonth.getMonth() + 1).padStart(2, "0");
-const day = String(getDateMonth.getDate()).padStart(2, "0");
-
-const yesterday = [year, month, day].join("-");
-
-export const getMatchesfootballFinished = async () => {
-  const matchData = await fetch(
-    `https://api.football-data.org/v4/matches?date=${yesterday}`,
-    options
-  );
-  return matchData.json();
 };
 
 export const filterLeague = async (filterCompetitionCode: string) => {
