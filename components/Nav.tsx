@@ -21,7 +21,7 @@ export default function Nav() {
   return (
     <header>
       <nav>
-        <ul className='flex flex-row items-center p-8'>
+        <ul className='flex flex-row items-center p-8 w-2/3 mx-auto'>
           <li className='mr-8'>
             <Link href='/'>Home</Link>
           </li>
@@ -62,10 +62,6 @@ export default function Nav() {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-          </li>
-
-          <li className='ml-auto'>
-            <ModeToggle />
           </li>
         </ul>
       </nav>
