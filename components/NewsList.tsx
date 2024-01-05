@@ -28,15 +28,15 @@ export default function NewsList({ news }: { news: any }) {
   }, [activeIndex]);
 
   return (
-    <>
-      <div className='flex flex-col gap-4 select-none mb-8'>
+    <div className='bg-card p-4 rounded-sm mb-8'>
+      <div className='flex flex-col gap-4 select-none'>
         {visibleNews.map((article: newsType) => (
           <div
-            className='border-b border-gray-200 pb-4 cursor-pointer hover:bg-secondary p-4 ease-linear transition-all duration-150'
+            className='p-4 cursor-pointer hover:bg-accent hover:text-accent-foreground ease-linear transition-all duration-150'
             onClick={() => window.open(article.url, "_blank")}
           >
             <span className='flex items-center'>
-              <p className='text-red-500 mr-4'>{article.source.name}</p>
+              <p className='text-primary mr-4'>{article.source.name}</p>
               <p className='text-muted-foreground text-sm'>
                 {getFormattedDate(new Date(article.publishedAt))}{" "}
                 {getFormattedTime(new Date(article.publishedAt))}
@@ -46,10 +46,7 @@ export default function NewsList({ news }: { news: any }) {
           </div>
         ))}
       </div>
-      <div
-        className='flex items-center justify-center gap-4'
-        aria-label='pagination'
-      >
+      <div className='flex items-center justify-center gap-4'>
         <Button
           variant='ghost'
           className='gap-1 pl-2.5'
@@ -68,6 +65,6 @@ export default function NewsList({ news }: { news: any }) {
           <ChevronRight className='h-4 w-4' />
         </Button>
       </div>
-    </>
+    </div>
   );
 }

@@ -28,11 +28,12 @@ export default function NewsSideBar({ news }: { news: any }) {
     setVisibleNews(news.slice(activeIndex * 5, activeIndex * 5 + 5));
   }, [activeIndex]);
   return (
-    <div className='w-1/4 ml-auto'>
+    // <div className='w-1/4 ml-auto bg-card p-4 rounded-sm'>
+    <div className='w-2/3 mx-auto mt-4 bg-card p-4 rounded-sm xl:w-1/4 xl:ml-auto xl:mt-0'>
       {visibleNews.map((article: newsType) => (
-        <div className='border-b border-gray-200 pb-4 cursor-pointer hover:bg-secondary p-4 ease-linear transition-all duration-150'>
+        <div className='p-4 rounded-sm cursor-pointer hover:bg-accent hover:text-accent-foreground ease-linear transition-all duration-150'>
           <span className='flex items-center'>
-            <p className='text-red-500 mr-4'>{article.source.name}</p>
+            <p className='text-primary mr-4'>{article.source.name}</p>
             <p className='text-muted-foreground text-sm'>
               {getFormattedDate(new Date(article.publishedAt))}
               {getFormattedTime(new Date(article.publishedAt))}
@@ -42,7 +43,7 @@ export default function NewsSideBar({ news }: { news: any }) {
         </div>
       ))}
       <div
-        className='flex items-center justify-center gap-4 mt-8'
+        className='flex items-center justify-center gap-4 mt-8 '
         aria-label='pagination'
       >
         <Button

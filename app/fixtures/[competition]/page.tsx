@@ -18,7 +18,7 @@ export default async function FixturesDetails({
 
   return (
     <main className='p-12'>
-      <section className='w-2/3 mx-auto flex'>
+      <section className='w-full flex flex-col items-center xl:w-2/3 xl:flex-row xl:items-start xl:mx-auto'>
         <div className='w-2/3 flex flex-col gap-4'>
           {leagueData.map((obj: matchesType) => {
             return <MatchInfo match={obj} key={obj.id} />;

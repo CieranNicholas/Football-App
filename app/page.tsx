@@ -3,6 +3,7 @@ import { Competitions, ICompetitions } from "@/types";
 import NewsCarousel from "@/components/NewsCarousel";
 import NewsList from "@/components/NewsList";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default async function Home() {
   const newsData = await fetchFootballNews();
@@ -13,15 +14,17 @@ export default async function Home() {
   return (
     <main className='p-12'>
       <section className='w-2/3 mx-auto mb-8'>
-        <h1 className='text-4xl font-bold mb-4'>Latest Football News</h1>
+        {/* <h1 className='scroll-m-20 text-4xl font-bold tracking-tight mb-4'>
+          Latest Football News
+        </h1> */}
         <NewsCarousel news={topNews} />
       </section>
       <section className="w-2/3 mx-auto mb-8'">
         <NewsList news={otherNews} />
       </section>
 
-      <section className='w-2/3 mx-auto mb-8'>
-        <h1 className='text-4xl font-bold mb-4'>Fixtures</h1>
+      <section className='w-2/3 mx-auto mb-8 bg-card rounded-sm p-4'>
+        <h3 className='font-semibold tracking-tight text-2xl mb-4'>Fixtures</h3>
         <div className='flex flex-wrap w-full gap-x-24 gap-y-12'>
           {Competitions.map((competition: ICompetitions) => (
             <Link
@@ -43,8 +46,8 @@ export default async function Home() {
           ))}
         </div>
       </section>
-      <section className='w-2/3 mx-auto mb-8'>
-        <h1 className='text-4xl font-bold mb-4'>Tables</h1>
+      <section className='w-2/3 mx-auto mb-8 bg-card rounded-sm p-4'>
+        <h3 className='font-semibold tracking-tight text-2xl mb-4'>Tables</h3>
         <div className='flex flex-wrap w-full justify-start gap-x-24 gap-y-12'>
           {Competitions.filter(
             (competition: ICompetitions) => competition.href !== ""
@@ -64,6 +67,7 @@ export default async function Home() {
           ))}
         </div>
       </section>
+      <Button>Hello</Button>
     </main>
   );
 }

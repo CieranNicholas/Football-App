@@ -10,22 +10,23 @@ import {
 import { newsType } from "@/types";
 
 export default function NewsCarousel({ news }: { news: newsType[] }) {
-  const topNews = news.slice(0, 3);
   return (
     <Carousel>
       <CarouselContent>
         {news.map((article: newsType) => (
           <CarouselItem key={article.url}>
             <div
-              className='flex flex-col justify-end items-start h-96 p-10'
+              className='flex flex-col justify-end items-start h-80 p-10'
               style={{
                 backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent), url(${article.image})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: "",
               }}
               onClick={() => window.open(article.url, "_blank")}
             >
-              <h2 className='text-3xl font-bold'>{article.title}</h2>
+              <h3 className='font-semibold tracking-tight text-2xl'>
+                {article.title}
+              </h3>
             </div>
           </CarouselItem>
         ))}
