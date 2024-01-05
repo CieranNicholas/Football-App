@@ -48,7 +48,9 @@ export default function Nav() {
                   <NavigationMenuTrigger>Tables</NavigationMenuTrigger>
                   <NavigationMenuContent className='top-0 left-0 w-full sm:w-auto'>
                     <ul className='m-0 grid list-none gap-5 p-5 grid-flow-col grid-rows-3'>
-                      {Competitions.map((obj: ICompetitions) => (
+                      {Competitions.filter(
+                        (obj: ICompetitions) => obj.href !== ""
+                      ).map((obj: ICompetitions) => (
                         <NavItem
                           href={`/tables/${obj.href}`}
                           title={obj.name}
