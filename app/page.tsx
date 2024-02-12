@@ -12,7 +12,7 @@ export default async function Home() {
   const otherNews = news.slice(5, news.length);
 
   return (
-    <main className='p-12'>
+    <main className='p-12 py-24'>
       <section className='w-2/3 mx-auto mb-8'>
         {/* <h1 className='scroll-m-20 text-4xl font-bold tracking-tight mb-4'>
           Latest Football News

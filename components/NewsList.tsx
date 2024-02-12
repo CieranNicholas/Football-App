@@ -34,6 +34,7 @@ export default function NewsList({ news }: { news: any }) {
           <div
             className='p-4 cursor-pointer hover:bg-accent hover:text-accent-foreground ease-linear transition-all duration-150'
             onClick={() => window.open(article.url, "_blank")}
+            key={article.publishedAt}
           >
             <span className='flex items-center'>
               <p className='text-primary mr-4'>{article.source.name}</p>
