@@ -24,7 +24,7 @@ export default function NewsCarousel({ news }: { news: newsType[] }) {
               }}
               onClick={() => window.open(article.url, "_blank")}
             >
-              <h3 className='font-semibold tracking-tight text-2xl'>
+              <h3 className='font-semibold tracking-tight text-lg md:text-2xl'>
                 {article.title}
               </h3>
             </div>

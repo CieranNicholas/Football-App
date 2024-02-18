@@ -198,3 +198,10 @@ export const Competitions: ICompetitions[] = [
     icon: "https://www.countryflags.com/wp-content/uploads/europe-flag-jpg-xl.jpg",
   },
 ];
+
+export interface INavItem {
+  id: number;
+  name: string;
+  type: string;
+  subItems: ICompetitions[];
+}

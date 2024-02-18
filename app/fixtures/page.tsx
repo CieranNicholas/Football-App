@@ -11,9 +11,9 @@ export default async function Fixtures() {
   const news = newsData.articles;
 
   return (
-    <main className='p-12'>
+    <main className='p-12 py-24 pb-0'>
       <section className='w-full flex flex-col items-center xl:w-2/3 xl:flex-row xl:items-start xl:mx-auto'>
-        <div className='w-2/3 flex flex-col gap-4'>
+        <div className='w-full flex flex-col gap-4 md:w-full'>
           {matches.map((obj: matchesType) => {
             return <MatchInfo match={obj} key={obj.id} />;
           })}

@@ -28,11 +28,11 @@ export default function NewsList({ news }: { news: any }) {
   }, [activeIndex]);
 
   return (
-    <div className='bg-card p-4 rounded-sm mb-8'>
+    <div className='bg-card rounded-sm mb-8'>
       <div className='flex flex-col gap-4 select-none'>
         {visibleNews.map((article: newsType) => (
           <div
-            className='p-4 cursor-pointer hover:bg-accent hover:text-accent-foreground ease-linear transition-all duration-150'
+            className='py-4 cursor-pointer hover:bg-accent hover:text-accent-foreground ease-linear transition-all duration-150'
             onClick={() => window.open(article.url, "_blank")}
             key={article.publishedAt}
           >
@@ -47,7 +47,7 @@ export default function NewsList({ news }: { news: any }) {
           </div>
         ))}
       </div>
-      <div className='flex items-center justify-center gap-4'>
+      <div className='flex items-center justify-center gap-4 py-4'>
         <Button
           variant='ghost'
           className='gap-1 pl-2.5'
